@@ -1,6 +1,6 @@
 # Switchboard Evolution: the landing page
 
-The page at **https://vivi7.github.io/switchboard-evolution-site/**, for [Switchboard Evolution](https://github.com/vivi7/switchboard-evolution): what the app is, its downloads, and every release.
+The page at **https://vivi7.github.io/switchboard-evolution/**, for [Switchboard Evolution](https://github.com/vivi7/switchboard-evolution): what the app is, its downloads, and every release.
 
 It is a static page with no build step: `index.html`, `styles.css`, `main.js`, `404.html` and `assets/`.
 
@@ -21,9 +21,13 @@ On `localhost` the page reads `releases.json` only, so a draft release can be se
 
 ## Publishing
 
-`.github/workflows/pages.yml` deploys on every push to `main`, once a day, and by hand from the Actions tab. It copies only what the page serves into `_site`.
+The page is published at the app repository's address, so its Pages workflow lives there: [`.github/workflows/pages.yml`](https://github.com/vivi7/switchboard-evolution/blob/master/.github/workflows/pages.yml) in vivi7/switchboard-evolution checks out this repository's `main` and runs `scripts/build.sh`, which writes `releases.json` and copies only what the page serves into `_site`.
 
-One-time setup: Settings › Pages › Build and deployment › Source: **GitHub Actions**.
+It runs once a day, when a release is published, and by hand. A push here does not publish by itself (the app repository's workflow cannot be started from here without a token), so after pushing a change run:
+
+```bash
+gh workflow run pages.yml -R vivi7/switchboard-evolution
+```
 
 ## Rules
 
