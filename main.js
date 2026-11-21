@@ -236,11 +236,12 @@
       );
       return;
     }
-    line.replaceChildren(
+    // replaceChildren would print a null as text: only nodes and strings go in.
+    line.replaceChildren(...[
       `Version ${version(latest)} · ${formatDate(when(latest))} · `,
       h('a', { href: latest.html_url }, 'Release notes'),
       latest.draft ? h('span', { class: 'tag tag--draft' }, 'Draft') : null,
-    );
+    ].filter(Boolean));
     const mine = pickMain(files, system);
     const plates = PLATFORMS.map((p) => {
       const yours = system.os === p.os;
@@ -267,7 +268,7 @@
         h('p', { class: 'plate-os-foot' }, p.foot),
       );
     }).filter(Boolean);
-    box.replaceChildren(...plates);
+    box.replaceChildren(...plates.filter(Boolean));
   }
 
   function renderReleases(releases, latest) {
