@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Switchboard Evolution: one board for all your coding agents</title>
+  <meta name="description" content="A desktop app and a phone app for Claude Code and Codex sessions across all your projects. Sessions survive a restart, Git is built in, and your phone answers when you are away. Free and open source.">
+  <meta name="theme-color" content="#17191B">
+  <link rel="canonical" href="https://vivi7.github.io/switchboard-evolution-site/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Switchboard Evolution">
+  <meta property="og:description" content="One board for all your coding agents, on your desk and on your phone. Free and open source.">
+  <meta property="og:url" content="https://vivi7.github.io/switchboard-evolution-site/">
+  <meta property="og:image" content="https://vivi7.github.io/switchboard-evolution-site/assets/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="preload" href="assets/fonts/big-shoulders-display.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/big-shoulders-stencil-display-800.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/barlow-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-out" viewBox="0 0 24 24"><path d="M8 16 16 8m-6.5 0H16v6.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M15 5.5V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m9.5 6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.79 0c2.21-1.49 3.18-1.18 3.18-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.69 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></symbol>
+  </svg>
+
+  <a class="skip" href="#download">Skip to the downloads</a>
+
+  <header class="rail">
+    <div class="rail-inner">
+      <a class="wordmark" href="#top" aria-label="Switchboard Evolution, top of the page">Switchboard <span>Evolution</span></a>
+      <nav class="rail-nav" aria-label="Main">
+        <a href="#download">Download</a>
+        <a href="#releases">Releases</a>
+        <a class="rail-github" href="https://github.com/vivi7/switchboard-evolution"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg><span>GitHub</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap">
+        <div class="mount" aria-hidden="true"></div>
+        <figure class="board" data-board role="img" aria-label="A demo board of eight coding-agent sessions across four made-up projects. Two stations are lit: one session is waiting for an answer and one task failed.">
+          <div class="board-head">
+            <p class="board-title">All projects</p>
+            <dl class="counters">
+              <div class="counter counter--call"><dt>Needs you</dt><dd data-count="call">2</dd></div>
+              <div class="counter"><dt>Running</dt><dd data-count="run">4</dd></div>
+              <div class="counter counter--wide"><dt>Sessions</dt><dd>16</dd></div>
+            </dl>
+          </div>
+          <ol class="stations">
+            <li class="station" data-state="call" data-agent="Claude">
+              <span class="st-no">01</span>
+              <span class="st-project">Fernwood Shop</span>
+              <span class="st-title">Fix cart total rounding for multi-currency orders</span>
+              <span class="st-status">Claude · <b>Waiting for you</b></span>
+              <span class="lamp"></span>
+            </li>
+            <li class="station" data-state="run" data-agent="Claude">
+              <span class="st-no">02</span>
+              <span class="st-project">Tidewater API</span>
+              <span class="st-title">Add cursor pagination to /orders</span>
+              <span class="st-status">Claude · <b>Running</b></span>
+              <span class="lamp"></span>
+            </li>
+            <li class="station" data-state="run" data-agent="Claude">
+              <span class="st-no">03</span>
+              <span class="st-project">Pebble Trails</span>
+              <span class="st-title">Offline map tiles caching</span>
+              <span class="st-status">Claude · <b>Running</b></span>
+              <span class="lamp"></span>
+            </li>
+            <li class="station" data-state="stop" data-agent="Codex">
+              <span class="st-no">04</span>
+              <span class="st-project">Lantern Infra</span>
+              <span class="st-title">Rotate the staging database credentials</span>
+              <span class="st-status">Codex · <b>Task failed</b></span>
+              <span class="lamp"></span>
+            </li>
+            <li class="station" data-state="run" data-agent="Codex">
+              <span class="st-no">05</span>
+              <span class="st-project">Tidewater API</span>
+              <span class="st-title">Rate limiting per API key</span>
+              <span class="st-status">Codex · <b>Running</b></span>
+              <span class="lamp"></span>
+            </li>
+            <li class="station" data-state="idle" data-agent="Claude">
+              <span class="st-no">06</span>
+              <span class="st-project">Fernwood Shop</span>
+              <span class="st-title">Add wishlist page with optimistic updates</span>
+              <span class="st-status">Claude · <b>Idle</b></span>
+              <span class="lamp"></span>
+            </li>
+            <li class="station" data-state="run" data-agent="Claude">
+              <span class="st-no">07</span>
+              <span class="st-project">Pebble Trails</span>
+              <span class="st-title">Elevation profile under each trail</span>
+              <span class="st-status">Claude · <b>Running</b></span>
+              <span class="lamp"></span>
+            </li>
+            <li class="station" data-state="idle" data-agent="Codex">
+              <span class="st-no">08</span>
+              <span class="st-project">Lantern Infra</span>
+              <span class="st-title">Autoscaling for the worker pool</span>
+              <span class="st-status">Codex · <b>Idle</b></span>
+              <span class="lamp"></span>
+            </li>
+          </ol>
+          <figcaption class="board-note">Demo board, made-up projects</figcaption>
+        </figure>
+
+        <div class="hero-band">
+          <h1 id="hero-title">One board for all your coding agents</h1>
+          <div class="hero-act">
+            <p class="lede">Claude Code and Codex sessions from every project, on your desk and on your phone. See at a glance which ones need you.</p>
+            <a class="plate" data-primary href="https://github.com/vivi7/switchboard-evolution/releases/latest">
+              <svg class="icon" aria-hidden="true"><use href="#i-down"/></svg>
+              <span class="plate-text">
+                <span class="plate-main" data-primary-main>Download</span>
+                <span class="plate-meta" data-primary-meta>Latest release on GitHub</span>
+              </span>
+            </a>
+            <ul class="cta-links">
+              <li data-primary-alt hidden></li>
+              <li><a href="#download">Other platforms</a></li>
+              <li><a href="#releases">All releases</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="line wrap">
+      <section class="desk" aria-labelledby="desk-title">
+        <h2 id="desk-title">Every project with its plan, its Git and its sessions</h2>
+        <ul class="facts">
+          <li><strong>Context next to the work.</strong> A project keeps its plan, todos, tracks, attached folders and sessions in one place, written and read by the agents themselves.</li>
+          <li><strong>Sessions survive a restart.</strong> On macOS and Linux the terminals run in herdr-core: quit the app and they keep going, and the next start picks them up.</li>
+          <li><strong>Who needs you, first.</strong> A session waiting for an answer is marked on its project, on the desk and on the phone alike.</li>
+        </ul>
+        <figure class="shot shot--hero">
+          <div class="bezel"><img src="assets/desktop-hero.webp" width="1600" height="1000" alt="Switchboard Evolution on the desktop: a project's overview with its sessions, plan, todos, recent files and attached folders, and the projects list on the left." fetchpriority="low"></div>
+          <figcaption>A project's overview: its sessions, plan, todos and attached folders. All projects are made up.</figcaption>
+        </figure>
+      </section>
+
+      <section class="phone" aria-labelledby="phone-title">
+        <h2 id="phone-title">Your phone as a second seat</h2>
+        <p class="intro">See which session needs you, read it and pick it up, start new ones, review diffs, stage and commit. The phone talks to your computer over your local network or Tailscale, encrypted end to end, with no cloud relay. Pair it once with a QR code.</p>
+        <ul class="phones">
+          <li>
+            <figure>
+              <div class="handset"><img src="assets/phone-projects.webp" width="720" height="1565" loading="lazy" alt="The phone app's projects list: one session waiting for you and one with an unread reply."></div>
+              <figcaption><strong>Who needs you</strong>Every project and its sessions, the waiting ones marked.</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure>
+              <div class="handset"><img src="assets/phone-conversation.webp" width="720" height="1565" loading="lazy" alt="A session's conversation on the phone, with its messages and a file the agent read."></div>
+              <figcaption><strong>Read and resume</strong>A session's conversation, with its terminal one tap away.</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure>
+              <div class="handset"><img src="assets/phone-git-graph.webp" width="720" height="1565" loading="lazy" alt="The Git Graph on the phone: branches, tags and commits of a demo repository."></div>
+              <figcaption><strong>Git Graph</strong>Branches, tags and every commit, with their actions.</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure>
+              <div class="handset"><img src="assets/phone-git-diff.webp" width="720" height="1565" loading="lazy" alt="A diff on the phone with Select and Stage Hunk buttons on each hunk."></div>
+              <figcaption><strong>Stage from the couch</strong>Review a diff, stage a hunk or single lines.</figcaption>
+            </figure>
+          </li>
+        </ul>
+      </section>
+
+      <section class="tools" aria-labelledby="tools-title">
+        <h2 id="tools-title">Git, files and resources without leaving the board</h2>
+        <div class="selector">
+          <div class="sel-row" role="tablist" aria-label="Views of the desktop app">
+            <button class="sel" type="button" role="tab" id="tab-history" aria-controls="view-history" aria-selected="true" tabindex="0">
+              <span class="sel-no">01</span><span class="sel-label">Git History</span><span class="lamp" aria-hidden="true"></span>
+            </button>
+            <button class="sel" type="button" role="tab" id="tab-compare" aria-controls="view-compare" aria-selected="false" tabindex="-1">
+              <span class="sel-no">02</span><span class="sel-label">Compare</span><span class="lamp" aria-hidden="true"></span>
+            </button>
+            <button class="sel" type="button" role="tab" id="tab-staging" aria-controls="view-staging" aria-selected="false" tabindex="-1">
+              <span class="sel-no">03</span><span class="sel-label">Staging</span><span class="lamp" aria-hidden="true"></span>
+            </button>
+            <button class="sel" type="button" role="tab" id="tab-worktrees" aria-controls="view-worktrees" aria-selected="false" tabindex="-1">
+              <span class="sel-no">04</span><span class="sel-label">Worktrees</span><span class="lamp" aria-hidden="true"></span>
+            </button>
+            <button class="sel" type="button" role="tab" id="tab-search" aria-controls="view-search" aria-selected="false" tabindex="-1">
+              <span class="sel-no">05</span><span class="sel-label">Search</span><span class="lamp" aria-hidden="true"></span>
+            </button>
+            <button class="sel" type="button" role="tab" id="tab-tasks" aria-controls="view-tasks" aria-selected="false" tabindex="-1">
+              <span class="sel-no">06</span><span class="sel-label">Task Manager</span><span class="lamp" aria-hidden="true"></span>
+            </button>
+          </div>
+          <figure class="view" role="tabpanel" id="view-history" aria-labelledby="tab-history">
+            <a href="assets/tool-git-history.webp" title="Open full size"><picture><source media="(max-width: 600px)" srcset="assets/tool-git-history-m.webp" width="420" height="525"><img src="assets/tool-git-history.webp" width="1200" height="750" loading="lazy" alt="The Git Graph of a demo repository, with the files and details of the selected commit."></picture></a>
+            <figcaption>The full Git Graph, with checkout, cherry-pick, revert, merge, rebase and the rest on each commit.</figcaption>
+          </figure>
+          <figure class="view" role="tabpanel" id="view-compare" aria-labelledby="tab-compare" data-later>
+            <a href="assets/tool-git-compare.webp" title="Open full size"><picture><source media="(max-width: 600px)" srcset="assets/tool-git-compare-m.webp" width="420" height="525"><img src="assets/tool-git-compare.webp" width="1200" height="750" loading="lazy" alt="Comparing three commits in two steps, with the changed files and both diffs side by side."></picture></a>
+            <figcaption>Compare two to four commits, one step at a time.</figcaption>
+          </figure>
+          <figure class="view" role="tabpanel" id="view-staging" aria-labelledby="tab-staging" data-later>
+            <a href="assets/tool-git-staging.webp" title="Open full size"><picture><source media="(max-width: 600px)" srcset="assets/tool-git-staging-m.webp" width="420" height="525"><img src="assets/tool-git-staging.webp" width="1200" height="750" loading="lazy" alt="Staging: three selected lines of a diff ready to stage, next to the staged and unstaged files."></picture></a>
+            <figcaption>Stage files, hunks or only the lines you choose.</figcaption>
+          </figure>
+          <figure class="view" role="tabpanel" id="view-worktrees" aria-labelledby="tab-worktrees" data-later>
+            <a href="assets/tool-worktrees.webp" title="Open full size"><picture><source media="(max-width: 600px)" srcset="assets/tool-worktrees-m.webp" width="420" height="525"><img src="assets/tool-worktrees.webp" width="1200" height="750" loading="lazy" alt="The worktrees of two repositories, with their branches and state."></picture></a>
+            <figcaption>The worktrees of every repository in the project, with a session one click away.</figcaption>
+          </figure>
+          <figure class="view" role="tabpanel" id="view-search" aria-labelledby="tab-search" data-later>
+            <a href="assets/tool-files-search.webp" title="Open full size"><picture><source media="(max-width: 600px)" srcset="assets/tool-files-search-m.webp" width="420" height="525"><img src="assets/tool-files-search.webp" width="1200" height="750" loading="lazy" alt="Search across a project's files, with a replacement ready and the matches listed by file."></picture></a>
+            <figcaption>Search and replace across the whole project, then edit in place.</figcaption>
+          </figure>
+          <figure class="view" role="tabpanel" id="view-tasks" aria-labelledby="tab-tasks" data-later>
+            <a href="assets/tool-task-manager.webp" title="Open full size"><picture><source media="(max-width: 600px)" srcset="assets/tool-task-manager-m.webp" width="420" height="525"><img src="assets/tool-task-manager.webp" width="1200" height="750" loading="lazy" alt="The Task Manager: memory in use, disk space by project, and the processes of each task."></picture></a>
+            <figcaption>The RAM each session and task uses, and the disk each project takes.</figcaption>
+          </figure>
+        </div>
+        <p class="also">Also on the board: a Note for each project, project tabs in windows of their own, Stats, schedules, and IDE diffs you can answer from the phone.</p>
+      </section>
+
+      <section class="download" id="download" aria-labelledby="download-title">
+        <div class="download-head">
+          <h2 id="download-title">Download</h2>
+          <p class="release-line" data-release-line>The builds of the latest release, for each system.</p>
+        </div>
+        <div class="platforms" data-platforms aria-live="polite">
+          <p class="platforms-note">Every build is on the <a href="https://github.com/vivi7/switchboard-evolution/releases/latest">latest release on GitHub</a>.</p>
+        </div>
+
+        <div class="install">
+          <div class="install-col">
+            <h3>Install</h3>
+            <h4>macOS</h4>
+            <p>Take the dmg for Apple silicon on an M-series Mac; the Intel one runs there too, under Rosetta, but slower. The app is not signed with an Apple Developer ID, so the first time open it with right-click › Open, or run:</p>
+            <div class="cmd"><code>xattr -dr com.apple.quarantine "/Applications/Switchboard Evolution.app"</code><button class="copy" type="button" data-copy><svg class="icon" aria-hidden="true"><use href="#i-copy"/></svg><span>Copy</span></button></div>
+            <h4>Windows</h4>
+            <p>The installer is not signed. When SmartScreen warns you, choose More info › Run anyway.</p>
+            <h4>Linux</h4>
+            <p>Make the AppImage executable and run it, or install the package for your distribution:</p>
+            <div class="cmd"><code>sudo apt install ./Switchboard-Evolution-*-amd64.deb</code><button class="copy" type="button" data-copy><svg class="icon" aria-hidden="true"><use href="#i-copy"/></svg><span>Copy</span></button></div>
+            <div class="cmd"><code>sudo pacman -U ./switchboard-e-*.pacman</code><button class="copy" type="button" data-copy><svg class="icon" aria-hidden="true"><use href="#i-copy"/></svg><span>Copy</span></button></div>
+            <h4>Android</h4>
+            <p>Download the APK on the phone and open it; allow installs from that source when asked. A newer APK installs over the old one and keeps the pairing.</p>
+            <h4 id="iphone">iPhone</h4>
+            <p>The phone app runs on iPhone too, but there is no download for it: you build it from the source code and install it yourself. On a Mac with Xcode, get the code, plug the iPhone in and, in <code>apps/mobile</code>, run:</p>
+            <div class="cmd"><code>npm ci &amp;&amp; npx expo run:ios --device --configuration Release</code><button class="copy" type="button" data-copy><svg class="icon" aria-hidden="true"><use href="#i-copy"/></svg><span>Copy</span></button></div>
+            <p>Xcode signs it with your Apple ID. With a free one the app stops opening after 7 days, and the same command installs it again. The <a href="https://github.com/vivi7/switchboard-evolution/tree/master/apps/mobile#install-it-on-a-phone">phone app’s README</a> has the steps, and TestFlight for a developer account.</p>
+          </div>
+          <div class="install-side">
+            <div class="pair">
+              <h3>Pair your phone</h3>
+              <ol>
+                <li>In the desktop app, turn on <strong>Mobile app access</strong>.</li>
+                <li>Choose <strong>Add a device</strong>.</li>
+                <li>Scan the QR code with the phone app.</li>
+              </ol>
+            </div>
+            <p class="needs">Switchboard Evolution runs the Claude Code and Codex command-line tools already on your computer.</p>
+            <p class="needs">Prefer to build it yourself? The <a href="https://github.com/vivi7/switchboard-evolution#build-and-run">README</a> has the steps.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section class="releases wrap" id="releases" aria-labelledby="releases-title">
+      <h2 id="releases-title">Releases</h2>
+      <p class="intro">Every version, newest first, as published on GitHub.</p>
+      <ol class="release-board" data-releases>
+        <li class="release release--note">The list of releases is on <a href="https://github.com/vivi7/switchboard-evolution/releases">GitHub</a>.</li>
+      </ol>
+    </section>
+
+    <section class="quiet wrap" aria-labelledby="quiet-title">
+      <div class="quiet-strip" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+      <h2 id="quiet-title">Nothing needs you right now</h2>
+      <p>If Switchboard Evolution saves you time, you can buy its developer a coffee.</p>
+      <a class="button-line" href="https://www.paypal.com/paypalme/vinf">Donate with PayPal<svg class="icon" aria-hidden="true"><use href="#i-out"/></svg></a>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot-inner">
+      <a class="wordmark" href="#top">Switchboard <span>Evolution</span></a>
+      <ul class="foot-links">
+        <li><a href="https://github.com/vivi7/switchboard-evolution">Source on GitHub</a></li>
+        <li><a href="https://github.com/vivi7/switchboard-evolution/releases">Releases</a></li>
+        <li><a href="https://github.com/vivi7/switchboard-evolution/issues">Report a problem</a></li>
+        <li><a href="https://github.com/vivi7/switchboard-evolution/blob/master/LICENSE">MIT license</a></li>
+      </ul>
+      <p class="foot-note">Free and open source. Switchboard Evolution grows out of <a href="https://github.com/doctly/switchboard">Switchboard</a> by Doctly and is not affiliated with Doctly. The screenshots show made-up demo projects.</p>
+    </div>
+  </footer>
+</body>
+</html>
